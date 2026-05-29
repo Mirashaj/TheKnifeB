@@ -117,7 +117,7 @@
                                     <VBox GridPane.columnIndex="0" GridPane.rowIndex="3">
                                        <children>
                                           <Label text="📍 Address" styleClass="tk-field-label" />
-                                          <TextField fx:id="tfDomicilio" promptText=" Milano" styleClass="tk-input" />
+                                          <TextField fx:id="tfDomicilio" promptText=" Milan" styleClass="tk-input" />
                                        </children>
                                     </VBox>
 

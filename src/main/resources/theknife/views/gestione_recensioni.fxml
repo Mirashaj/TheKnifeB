@@ -70,8 +70,9 @@
                      </padding>
                   </VBox>
                   <VBox fx:id="vboxRecensioni" spacing="16.0" />
-                  <Label fx:id="lblEmpty" text="No reviews yet" styleClass="tk-text-secondary" visible="false" managed="false" />
-                  <Label fx:id="lblError" text="" styleClass="tk-text-error" visible="false" managed="false" />
+                      <Label text="There are no reviews yet" styleClass="tk-section-title" />
+                      <Label text="Discover restaurants and book the ones you love most" styleClass="tk-text-secondary" />
+                      <Button text="Explore Restaurants" styleClass="tk-btn-primary" onAction="#handleHome" />
                </children>
             </VBox>
          </content>

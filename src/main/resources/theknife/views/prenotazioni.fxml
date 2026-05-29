@@ -77,17 +77,9 @@
 
                     <TilePane fx:id="tilePrenotazioni" hgap="16.0" vgap="16.0" prefColumns="3" styleClass="tk-grid" />
 
-
-                    <VBox fx:id="emptyStateBox" spacing="12.0" alignment="CENTER" visible="false" managed="false">
-                      <children>
-                        <StackPane styleClass="tk-empty-state-icon">
-                          <children>
-                            <SVGPath content="M17.25 3h-4.5a.75.75 0 00-.75.75V6h6V3.75a.75.75 0 00-.75-.75zM17 8H7v9h10V8zM10.5 4.5h3v1h-3v-1z M20.75 3H4.75A1.75 1.75 0 003 4.75v12.5c0 .966.784 1.75 1.75 1.75h16.5A1.75 1.75 0 0022 17.25V4.75A1.75 1.75 0 0020.25 3zM20 17H4V8h16v9zm-1.5-11H5.5V5h13v1z" styleClass="tk-empty-state-icon-svg" />
-                          </children>
-                        </StackPane>
-                        <Label text="There are no bookings yet" styleClass="tk-section-title" />
-                      </children>
-                    </VBox>
+                      <Label text="There are no bookings yet" styleClass="tk-section-title" />
+                      <Label text="Discover restaurants and book the ones you love most" styleClass="tk-text-secondary" />
+                      <Button text="Explore Restaurants" styleClass="tk-btn-primary" onAction="#handleHome" />
 
                     <Label fx:id="lblError" text="" styleClass="tk-text-error" visible="false" managed="false" />
                   </children>

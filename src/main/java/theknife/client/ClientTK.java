@@ -42,10 +42,10 @@ public class ClientTK extends Application {
         try {
             ServerConnection.init("localhost", 5000);
         } catch (IOException e) {
-            System.err.println("Errore di connessione al server: " + e.getMessage());
+            System.err.println("Connection error to the server: " + e.getMessage());
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Errore di connessione");
-            alert.setHeaderText("Impossibile connettersi al server. Verificare che serverTK sia in esecuzione.");
+            alert.setTitle("Connection Error");
+            alert.setHeaderText("Unable to connect to the server. Please ensure that serverTK is running.");
             alert.showAndWait();
             Platform.exit();
             return;
@@ -91,7 +91,7 @@ public class ClientTK extends Application {
                 primaryStage.show();
             }
         } catch (IOException e) {
-            System.err.println("Errore nel caricamento della schermata: " + e.getMessage());
+            System.err.println("Error loading the screen: " + e.getMessage());
             e.printStackTrace();
         }
     }

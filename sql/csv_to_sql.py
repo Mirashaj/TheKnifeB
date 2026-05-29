@@ -4,8 +4,7 @@ import os
 import random
 import math
 
-# deterministic RNG for repeatable SQL generation
-rnd = random.Random(42)  # seed fisso = risultato deterministico, sempre uguale
+rnd = random.Random(42)  
 
 def extract_price(price_str):
     if not price_str:

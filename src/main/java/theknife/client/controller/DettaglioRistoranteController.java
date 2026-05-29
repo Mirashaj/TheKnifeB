@@ -7,6 +7,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
+import java.util.Locale;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
@@ -87,7 +88,7 @@ public class DettaglioRistoranteController {
 
     private int selectedRating = 5;
     private boolean isPreferito = false;
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.ENGLISH);
 
     @FXML
     public void initialize() {
@@ -579,7 +580,7 @@ public class DettaglioRistoranteController {
         }
         if (SessioneCorrente.getInstance().isGestore()) {
             if (lblMessaggio != null)
-                lblMessaggio.setText("Gestores cannot make bookings.");
+                lblMessaggio.setText("Managers cannot make bookings.");
             return;
         }
 

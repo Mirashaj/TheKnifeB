@@ -194,13 +194,13 @@ public class ClientHandler implements Runnable {
                     return handleEliminaUtente(params);
 
                 case "DISCONNECT":
-                    return new Response(true, "Disconnessione confermata.", null);
+                    return new Response(true, "Disconnect confirmed.", null);
 
                 default:
-                    return new Response(false, "Request sconosciuta: " + tipo, null);
+                    return new Response(false, "Unknown request: " + tipo, null);
             }
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -209,20 +209,20 @@ public class ClientHandler implements Runnable {
         String password = (String) params.get("password");
 
         if (email == null || password == null) {
-            return new Response(false, "Email e password sono obbligatori.", null);
+            return new Response(false, "Email and password are required.", null);
         }
 
         Utente utente = utenteDAO.findByEmail(email);
         if (utente == null) {
-            return new Response(false, "Utente o password errati.", null);
+            return new Response(false, "Invalid email or password.", null);
         }
 
         // Verifica la password con BCrypt
         if (!BCrypt.checkpw(password, utente.getPasswordHash())) {
-            return new Response(false, "Utente o password errati.", null);
+            return new Response(false, "Invalid email or password.", null);
         }
 
-        return new Response(true, "Login eseguito.", utente);
+        return new Response(true, "Login successful.", utente);
     }
 
     private Response handleRegistrazione(Map<String, Object> params) {
@@ -233,11 +233,11 @@ public class ClientHandler implements Runnable {
         String ruolo = (String) params.get("ruolo");
 
         if (nome == null || cognome == null || email == null || password == null || ruolo == null) {
-            return new Response(false, "Campi obbligatori mancanti.", null);
+            return new Response(false, "Missing required fields.", null);
         }
 
         if (utenteDAO.esisteEmail(email)) {
-            return new Response(false, "Email già registrata.", null);
+            return new Response(false, "Email already registered.", null);
         }
 
         Utente utente = new Utente();
@@ -257,36 +257,36 @@ public class ClientHandler implements Runnable {
 
         utente = utenteDAO.inserisci(utente);
 
-        return new Response(true, "Registrazione completata.", utente);
+        return new Response(true, "Registration completed.", utente);
     }
 
     private Response handleCercaRistorante(Map<String, Object> params) {
         List<Ristorante> risultati = ristoranteDAO.cerca(params);
-        return new Response(true, "Ricerca completata.", risultati);
+        return new Response(true, "Search completed.", risultati);
     }
 
     private Response handleDettaglioRistorante(Map<String, Object> params) {
         Integer idRistorante = (Integer) params.get("idRistorante");
         if (idRistorante == null) {
-            return new Response(false, "ID ristorante mancante.", null);
+            return new Response(false, "Missing restaurant ID.", null);
         }
 
         Ristorante r = ristoranteDAO.findById(idRistorante);
         if (r == null) {
-            return new Response(false, "Ristorante non trovato.", null);
+            return new Response(false, "Restaurant not found.", null);
         }
 
-        return new Response(true, "Dettaglio ristorante.", r);
+        return new Response(true, "Restaurant details.", r);
     }
 
     private Response handleVisualizzaRecensioni(Map<String, Object> params) {
         Integer idRistorante = (Integer) params.get("idRistorante");
         if (idRistorante == null) {
-            return new Response(false, "ID ristorante mancante.", null);
+            return new Response(false, "Missing restaurant ID.", null);
         }
 
         List<Recensione> recensioni = recensioneDAO.findByRistorante(idRistorante);
-        return new Response(true, "Recensioni recuperate.", recensioni);
+        return new Response(true, "Reviews retrieved.", recensioni);
     }
 
     private Response handleAggiungiPreferito(Map<String, Object> params) {
@@ -295,13 +295,13 @@ public class ClientHandler implements Runnable {
             Integer idRistorante = (Integer) params.get("idRistorante");
 
             if (idUtente == null || idRistorante == null) {
-                return new Response(false, "Parametri obbligatori mancanti.", null);
+                return new Response(false, "Missing required parameters.", null);
             }
 
             ristoranteDAO.aggiungiPreferito(idUtente, idRistorante);
-            return new Response(true, "Preferito aggiunto.", true);
+            return new Response(true, "Favorite added.", true);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -311,13 +311,13 @@ public class ClientHandler implements Runnable {
             Integer idRistorante = (Integer) params.get("idRistorante");
 
             if (idUtente == null || idRistorante == null) {
-                return new Response(false, "Parametri obbligatori mancanti.", null);
+                return new Response(false, "Missing required parameters.", null);
             }
 
             ristoranteDAO.rimuoviPreferito(idUtente, idRistorante);
-            return new Response(true, "Preferito rimosso.", true);
+            return new Response(true, "Favorite removed.", true);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -326,13 +326,13 @@ public class ClientHandler implements Runnable {
             Integer idUtente = (Integer) params.get("idUtente");
 
             if (idUtente == null) {
-                return new Response(false, "ID utente mancante.", null);
+                return new Response(false, "Missing user ID.", null);
             }
 
             List<Ristorante> lista = ristoranteDAO.findPreferiti(idUtente);
-            return new Response(true, "Preferiti recuperati.", lista);
+            return new Response(true, "Favorites retrieved.", lista);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -343,7 +343,7 @@ public class ClientHandler implements Runnable {
         String testo = (String) params.get("testo");
 
         if (idUtente == null || idRistorante == null || stelle == null) {
-            return new Response(false, "Parametri obbligatori mancanti.", null);
+            return new Response(false, "Missing required parameters.", null);
         }
 
         Recensione r = new Recensione();
@@ -354,10 +354,10 @@ public class ClientHandler implements Runnable {
 
         r = recensioneDAO.inserisci(r);
         if (r.getId() > 0) {
-            return new Response(true, "Recensione aggiunta.", r);
+            return new Response(true, "Review added.", r);
         }
 
-        return new Response(false, "Errore nell'inserimento della recensione.", null);
+        return new Response(false, "Error adding review.", null);
     }
 
     private Response handleModificaRecensione(Map<String, Object> params) {
@@ -366,29 +366,29 @@ public class ClientHandler implements Runnable {
         String testo = (String) params.get("testo");
 
         if (idRecensione == null || stelle == null) {
-            return new Response(false, "Parametri obbligatori mancanti.", null);
+            return new Response(false, "Missing required parameters.", null);
         }
 
         Recensione r = recensioneDAO.modifica(idRecensione, stelle, testo);
         if (r != null) {
-            return new Response(true, "Recensione modificata.", r);
+            return new Response(true, "Review updated.", r);
         }
 
-        return new Response(false, "Errore nella modifica della recensione.", null);
+        return new Response(false, "Error updating review.", null);
     }
 
     private Response handleEliminaRecensione(Map<String, Object> params) {
         Integer idRecensione = (Integer) params.get("idRecensione");
         if (idRecensione == null) {
-            return new Response(false, "ID recensione mancante.", null);
+            return new Response(false, "Missing review ID.", null);
         }
 
         boolean result = recensioneDAO.elimina(idRecensione);
         if (result) {
-            return new Response(true, "Recensione eliminata.", true);
+            return new Response(true, "Review deleted.", true);
         }
 
-        return new Response(false, "Errore nell'eliminazione della recensione.", null);
+        return new Response(false, "Error deleting review.", null);
     }
 
     private Response handleAggiungiRistorante(Map<String, Object> params) {
@@ -407,7 +407,7 @@ public class ClientHandler implements Runnable {
 
             if (nome == null || citta == null || nazione == null || indirizzo == null || latitudineObj == null
                     || longitudineObj == null) {
-                return new Response(false, "Parametri obbligatori mancanti.", null);
+                return new Response(false, "Missing required parameters.", null);
             }
 
             Ristorante ristorante = new Ristorante();
@@ -430,9 +430,9 @@ public class ClientHandler implements Runnable {
             }
 
             Ristorante inserito = ristoranteDAO.inserisci(ristorante);
-            return new Response(true, "Ristorante aggiunto.", inserito);
+            return new Response(true, "Restaurant added.", inserito);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -453,16 +453,16 @@ public class ClientHandler implements Runnable {
 
             if (idRistorante == null || nome == null || citta == null || nazione == null || indirizzo == null
                     || latitudineObj == null || longitudineObj == null) {
-                return new Response(false, "Parametri obbligatori mancanti.", null);
+                return new Response(false, "Missing required parameters.", null);
             }
 
             Ristorante ristorante = ristoranteDAO.findById(idRistorante);
             if (ristorante == null) {
-                return new Response(false, "Ristorante non trovato.", null);
+                return new Response(false, "Restaurant not found.", null);
             }
 
             if (idGestore != null && ristorante.getIdGestore() != idGestore) {
-                return new Response(false, "Non autorizzato a modificare questo ristorante.", null);
+                return new Response(false, "Unauthorized to modify this restaurant.", null);
             }
 
             ristorante.setNome(nome);
@@ -482,11 +482,11 @@ public class ClientHandler implements Runnable {
 
             Ristorante aggiornato = ristoranteDAO.modifica(ristorante);
             if (aggiornato != null) {
-                return new Response(true, "Ristorante modificato.", aggiornato);
+                return new Response(true, "Restaurant updated.", aggiornato);
             }
-            return new Response(false, "Impossibile modificare il ristorante.", null);
+            return new Response(false, "Unable to modify restaurant.", null);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -494,13 +494,13 @@ public class ClientHandler implements Runnable {
         try {
             Integer idGestore = (Integer) params.get("idGestore");
             if (idGestore == null) {
-                return new Response(false, "ID gestore mancante.", null);
+                return new Response(false, "Missing manager ID.", null);
             }
 
             List<RiepilogoRistorante> lista = ristoranteDAO.riepilogoByGestore(idGestore);
-            return new Response(true, "Riepilogo gestore.", lista);
+            return new Response(true, "Manager summary.", lista);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -508,13 +508,13 @@ public class ClientHandler implements Runnable {
         try {
             Integer idGestore = (Integer) params.get("idGestore");
             if (idGestore == null) {
-                return new Response(false, "ID gestore mancante.", null);
+                return new Response(false, "Missing manager ID.", null);
             }
 
             List<Ristorante> lista = ristoranteDAO.findByGestore(idGestore);
-            return new Response(true, "Ristoranti gestore.", lista);
+            return new Response(true, "Manager restaurants.", lista);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -522,13 +522,13 @@ public class ClientHandler implements Runnable {
         try {
             Integer idGestore = (Integer) params.get("idGestore");
             if (idGestore == null) {
-                return new Response(false, "ID gestore mancante.", null);
+                return new Response(false, "Missing manager ID.", null);
             }
 
             List<Recensione> lista = recensioneDAO.findByGestore(idGestore);
-            return new Response(true, "Recensioni gestore.", lista);
+            return new Response(true, "Manager reviews.", lista);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -538,29 +538,29 @@ public class ClientHandler implements Runnable {
         String testo = (String) params.get("testo");
 
         if (idRecensione == null || idGestore == null || testo == null) {
-            return new Response(false, "Parametri obbligatori mancanti.", null);
+            return new Response(false, "Missing required parameters.", null);
         }
 
         RispostaRecensione risposta = recensioneDAO.rispondi(idRecensione, idGestore, testo);
         if (risposta != null) {
-            return new Response(true, "Risposta aggiunta.", risposta);
+            return new Response(true, "Reply added.", risposta);
         }
 
-        return new Response(false, "Errore nell'aggiunta della risposta.", null);
+        return new Response(false, "Error adding reply.", null);
     }
 
     private Response handleEliminaRisposta(Map<String, Object> params) {
         Integer idRisposta = (Integer) params.get("idRisposta");
         if (idRisposta == null) {
-            return new Response(false, "ID risposta mancante.", null);
+            return new Response(false, "Missing reply ID.", null);
         }
 
         boolean result = recensioneDAO.eliminaRisposta(idRisposta);
         if (result) {
-            return new Response(true, "Risposta eliminata.", true);
+            return new Response(true, "Reply deleted.", true);
         }
 
-        return new Response(false, "Errore nell'eliminazione della risposta.", null);
+        return new Response(false, "Error deleting reply.", null);
     }
 
     private Response handleVerificaPreferito(Map<String, Object> params) {
@@ -569,13 +569,13 @@ public class ClientHandler implements Runnable {
             Integer idRistorante = (Integer) params.get("idRistorante");
 
             if (idUtente == null || idRistorante == null) {
-                return new Response(false, "Parametri obbligatori mancanti.", null);
+                return new Response(false, "Missing required parameters.", null);
             }
 
             boolean isPreferito = ristoranteDAO.isPreferito(idUtente, idRistorante);
             return new Response(true, "Ok.", isPreferito);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -583,13 +583,13 @@ public class ClientHandler implements Runnable {
         try {
             Integer idUtente = (Integer) params.get("idUtente");
             if (idUtente == null) {
-                return new Response(false, "ID utente mancante.", null);
+                return new Response(false, "Missing user ID.", null);
             }
 
             List<Recensione> lista = recensioneDAO.findByUtente(idUtente);
-            return new Response(true, "Recensioni utente.", lista);
+            return new Response(true, "User reviews.", lista);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -601,7 +601,7 @@ public class ClientHandler implements Runnable {
             Number postiObj = (Number) params.get("posti");
 
             if (idUtente == null || idRistorante == null) {
-                return new Response(false, "Parametri obbligatori mancanti.", null);
+                return new Response(false, "Missing required parameters.", null);
             }
 
             int posti = (postiObj != null) ? postiObj.intValue() : 1;
@@ -615,12 +615,12 @@ public class ClientHandler implements Runnable {
 
             p = prenotazioneDAO.inserisci(p);
             if (p.getId() > 0) {
-                return new Response(true, "Prenotazione aggiunta.", p);
+                return new Response(true, "Booking added.", p);
             }
 
-            return new Response(false, "Errore nell'inserimento della prenotazione.", null);
+            return new Response(false, "Error adding booking.", null);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -628,12 +628,12 @@ public class ClientHandler implements Runnable {
         try {
             Integer idUtente = (Integer) params.get("idUtente");
             if (idUtente == null) {
-                return new Response(false, "ID utente mancante.", null);
+                return new Response(false, "Missing user ID.", null);
             }
             java.util.List<Prenotazione> lista = prenotazioneDAO.findByUtente(idUtente);
-            return new Response(true, "Prenotazioni recuperate.", lista);
+            return new Response(true, "Bookings retrieved.", lista);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -641,12 +641,12 @@ public class ClientHandler implements Runnable {
         try {
             Integer idGestore = (Integer) params.get("idGestore");
             if (idGestore == null) {
-                return new Response(false, "ID gestore mancante.", null);
+                return new Response(false, "Missing manager ID.", null);
             }
             java.util.List<Prenotazione> lista = prenotazioneDAO.findByGestore(idGestore);
-            return new Response(true, "Prenotazioni recuperate.", lista);
+            return new Response(true, "Bookings retrieved.", lista);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -654,14 +654,14 @@ public class ClientHandler implements Runnable {
         try {
             Integer idPrenotazione = (Integer) params.get("idPrenotazione");
             if (idPrenotazione == null) {
-                return new Response(false, "ID prenotazione mancante.", null);
+                return new Response(false, "Missing booking ID.", null);
             }
             boolean ok = prenotazioneDAO.elimina(idPrenotazione);
             if (ok)
-                return new Response(true, "Prenotazione eliminata.", true);
-            return new Response(false, "Errore nell'eliminazione della prenotazione.", null);
+                return new Response(true, "Booking deleted.", true);
+            return new Response(false, "Error deleting booking.", null);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -673,14 +673,14 @@ public class ClientHandler implements Runnable {
             Number postiObj = (Number) params.get("posti");
 
             if (idUtente == null || idPrenotazione == null) {
-                return new Response(false, "Parametri obbligatori mancanti.", null);
+                return new Response(false, "Missing required parameters.", null);
             }
             if (data == null) {
-                return new Response(false, "Data prenotazione mancante.", null);
+                return new Response(false, "Missing booking date.", null);
             }
             int posti = (postiObj != null) ? postiObj.intValue() : 1;
             if (posti < 1) {
-                return new Response(false, "Posti non validi.", null);
+                return new Response(false, "Invalid number of people.", null);
             }
 
             Prenotazione p = new Prenotazione();
@@ -692,11 +692,11 @@ public class ClientHandler implements Runnable {
 
             Prenotazione aggiornata = prenotazioneDAO.aggiorna(p);
             if (aggiornata != null) {
-                return new Response(true, "Prenotazione aggiornata.", aggiornata);
+                return new Response(true, "Booking updated.", aggiornata);
             }
-            return new Response(false, "Impossibile aggiornare la prenotazione.", null);
+            return new Response(false, "Unable to update booking.", null);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -704,15 +704,15 @@ public class ClientHandler implements Runnable {
         try {
             String luogo = (String) params.get("luogo");
             if (luogo == null) {
-                return new Response(false, "Luogo mancante.", null);
+                return new Response(false, "Missing location.", null);
             }
 
             params.put("limite", 20); // Limita a 20 risultati
 
             List<Ristorante> risultati = ristoranteDAO.cerca(params);
-            return new Response(true, "Ristoranti vicini.", risultati);
+            return new Response(true, "Nearby restaurants.", risultati);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -725,12 +725,12 @@ public class ClientHandler implements Runnable {
             String password = (String) params.get("password");
 
             if (idUtente == null || nome == null || cognome == null || email == null) {
-                return new Response(false, "Parametri obbligatori mancanti.", null);
+                return new Response(false, "Missing required parameters.", null);
             }
 
             Utente existing = utenteDAO.findByEmail(email);
             if (existing != null && existing.getId() != idUtente) {
-                return new Response(false, "L'email inserita è già in uso da un altro utente.", null);
+                return new Response(false, "The email entered is already in use.", null);
             }
 
             Utente u = new Utente();
@@ -745,11 +745,11 @@ public class ClientHandler implements Runnable {
 
             Utente aggiornato = utenteDAO.modifica(u);
             if (aggiornato != null) {
-                return new Response(true, "Profilo aggiornato con successo.", aggiornato);
+                return new Response(true, "Profile updated successfully.", aggiornato);
             }
-            return new Response(false, "Errore nell'aggiornamento del profilo.", null);
+            return new Response(false, "Error updating profile.", null);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 
@@ -757,16 +757,16 @@ public class ClientHandler implements Runnable {
         try {
             Integer idUtente = (Integer) params.get("idUtente");
             if (idUtente == null) {
-                return new Response(false, "ID utente mancante.", null);
+                return new Response(false, "Missing user ID.", null);
             }
 
             boolean eliminato = utenteDAO.elimina(idUtente);
             if (eliminato) {
-                return new Response(true, "Account eliminato.", true);
+                return new Response(true, "Account deleted.", true);
             }
-            return new Response(false, "Errore nell'eliminazione dell'account.", null);
+            return new Response(false, "Error deleting account.", null);
         } catch (Exception e) {
-            return new Response(false, "Errore: " + e.getMessage(), null);
+            return new Response(false, "Error: " + e.getMessage(), null);
         }
     }
 

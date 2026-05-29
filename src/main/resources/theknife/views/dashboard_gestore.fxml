@@ -72,8 +72,9 @@
                      </padding>
                   </VBox>
                   <TilePane fx:id="tileRistoranti" hgap="22.0" vgap="22.0" prefColumns="2" tileAlignment="TOP_LEFT" />
-                  <Label fx:id="lblEmpty" text="You haven't added any restaurants yet" styleClass="tk-text-secondary" visible="false" managed="false" />
-                  <Label fx:id="lblError" text="" styleClass="tk-text-error" visible="false" managed="false" />
+                      <Label text="You haven't added any restaurants yet" styleClass="tk-section-title" />
+                      <Label text="Add new restaurants and show everyone your skills" styleClass="tk-text-secondary" />
+                      <Button text="Explore Restaurants" styleClass="tk-btn-primary" onAction="#handleHome" />                  <Label fx:id="lblError" text="" styleClass="tk-text-error" visible="false" managed="false" />
                </children>
             </VBox>
          </content>
