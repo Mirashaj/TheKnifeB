@@ -2,7 +2,6 @@
 sql/insert_data.sql
 sql/insert_reviews.sql
 sql/setup_user.sql
-michelin_my_maps.csv
 
 # Build output
 target/
