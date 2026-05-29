@@ -1,0 +1,35 @@
+# Dati generati o import locali
+sql/insert_data.sql
+sql/insert_reviews.sql
+sql/setup_user.sql
+michelin_my_maps.csv
+
+# Build output
+target/
+bin/
+lib/
+*.class
+*.jar
+.\cleanup-fxml-bom.ps1 
+
+# File temporanei
+_tmp/
+*.log
+*.tmp
+*.swp
+
+# Configurazioni locali degli editor/IDE
+.vscode/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# File di sistema
+.DS_Store
+Thumbs.db
+*.md
+COMANDI.txt
+.\COMANDI.txt
+

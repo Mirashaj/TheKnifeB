@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theknife.client.controller.HomeController" styleClass="tk-root">
+  <top>
+    <VBox>
+      <children>
+        <HBox alignment="CENTER_LEFT" spacing="12.0">
+          <children>
+            <VBox spacing="2.0" style="-fx-padding: 0 28 0 0">
+              <children>
+                <StackPane styleClass="tk-welcome-brand-badge">
+                  <children>
+                    <Label text="TK" styleClass="tk-welcome-brand-badge-text" />
+                  </children>
+                </StackPane>
+              </children>
+            </VBox>
+
+            <HBox spacing="8.0" alignment="CENTER_LEFT">
+              <children>
+                <Button fx:id="btnNavHome" mnemonicParsing="false" onAction="#handleHome" text="Home" styleClass="tk-nav-active" />
+                <Button fx:id="btnNavSecondary" mnemonicParsing="false" onAction="#handlePreferiti" text="Favorites" styleClass="tk-nav-item" />
+                <Button fx:id="btnNavThird" mnemonicParsing="false" onAction="#handleMieRecensioni" text="Reviews" styleClass="tk-nav-item" />
+                <Button fx:id="btnNavFourth" mnemonicParsing="false" onAction="#handlePrenotazioni" text="Bookings" styleClass="tk-nav-item" />
+              </children>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <MenuButton fx:id="accountMenuButton" mnemonicParsing="false" styleClass="tk-account-menu" />
+          </children>
+        </HBox>
+      </children>
+      <padding>
+        <Insets bottom="18.0" left="24.0" right="24.0" top="18.0" />
+      </padding>
+    </VBox>
+  </top>
+
+
+
+   <center>
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="tk-content-scroll">
+         <content>
+            <VBox spacing="18.0" styleClass="tk-detail-layout">
+               <children>
+
+         <VBox spacing="12.0" styleClass="tk-hero">
+               <children>
+                  <VBox spacing="26.0">
+                     <children>
+                        <Label text="Search restaurants" styleClass="tk-screen-title" />
+                        <Label text="Filter by city, cuisine, price, delivery, and booking availability." styleClass="tk-text-secondary" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="20.0" styleClass="tk-filter-panel">
+                     <children>
+                        <HBox spacing="20.0">
+                           <children>
+                              <TextField fx:id="txtRicerca" HBox.hgrow="ALWAYS" prefHeight="42.0" promptText="City, address or restaurant name" styleClass="tk-input" />
+                                 <TextField fx:id="txtCucina" HBox.hgrow="ALWAYS" prefHeight="38.0" promptText="Cuisine type" styleClass="tk-input" />
+
+                                 <Button mnemonicParsing="false" onAction="#handleCerca" prefHeight="42.0" text="🔍 Search" styleClass="tk-btn-search" />
+                                 <Button mnemonicParsing="false" onAction="#handleToggleFilters" prefHeight="42.0" text="Filters" styleClass="tk-btn-primary" />
+                           </children>
+                        </HBox>
+                        <VBox fx:id="filterMenu" spacing="12.0" visible="false" managed="false" styleClass="tk-filters-menu">
+                           <children>
+                              <HBox spacing="21.0">
+                                 <children>
+                                    <TextField fx:id="txtLatitudine" prefWidth="100.0" promptText="Latitude" styleClass="tk-input" />
+                                    <TextField fx:id="txtLongitudine" prefWidth="100.0" promptText="Longitude" styleClass="tk-input" />
+                                    <CheckBox fx:id="chkDelivery" mnemonicParsing="false" text="Delivery available" styleClass="tk-text-secondary" />
+                                    <CheckBox fx:id="chkPrenotazione" mnemonicParsing="false" text="Booking available" styleClass="tk-text-secondary" />
+                                    <VBox spacing="4.0">
+                                       <children>
+                                          <Label fx:id="lblStelleMin" text="Min rating: 0.0" styleClass="tk-text-secondary" />
+                                          <Slider fx:id="sliderStelle" blockIncrement="0.5" majorTickUnit="1" max="5" min="0" prefWidth="160.0" showTickMarks="true" value="0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="18.0">
+                                 <children>
+                                 </children>
+                              </HBox>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#handleCerca" text="Apply filters" styleClass="tk-btn-primary" />
+                                    <Button mnemonicParsing="false" onAction="#handleToggleFilters" text="Close" styleClass="tk-btn-secondary" />
+                                 </children>
+                              </HBox>
+                              <Label fx:id="lblMessaggio" styleClass="tk-text-secondary" text="Ready to search." />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="16.0" left="18.0" right="18.0" top="16.0" />
+               </padding>
+            </VBox>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label text="Restaurants" styleClass="tk-section-title" />
+                        <Region HBox.hgrow="ALWAYS" prefHeight="1.0" minHeight="1.0" maxHeight="1.0" styleClass="tk-section-separator" />
+                     </children>
+                  </HBox>
+                  <TilePane fx:id="flowRistoranti" hgap="180.0" prefColumns="4" tileAlignment="TOP_LEFT" vgap="18.0" prefTileWidth="200.0" prefTileHeight="220.0" prefWidth="800.0" />
+                  <HBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <Button fx:id="btnCaricaAltro" mnemonicParsing="false" onAction="#handleLoadMore" text="Load more" styleClass="tk-btn-secondary" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER_RIGHT" styleClass="tk-navbar">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleIndietro" text="Back" styleClass="tk-btn-secondary" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

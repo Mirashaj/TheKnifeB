@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theknife.client.controller.PreferitiController" styleClass="tk-root" prefWidth="900" prefHeight="700">
+  <top>
+    <VBox>
+      <children>
+        <HBox alignment="CENTER_LEFT" spacing="12.0">
+          <children>
+            <VBox spacing="2.0" style="-fx-padding: 0 28 0 0">
+              <children>
+                <StackPane styleClass="tk-welcome-brand-badge">
+                  <children>
+                    <Label text="TK" styleClass="tk-welcome-brand-badge-text" />
+                  </children>
+                </StackPane>
+              </children>
+            </VBox>
+
+            <HBox spacing="8.0" alignment="CENTER_LEFT">
+              <children>
+                <Button fx:id="btnNavHome" mnemonicParsing="false" onAction="#handleHome" text="Home" styleClass="tk-nav-item" />
+                <Button fx:id="btnNavSecondary" mnemonicParsing="false" onAction="#handlePreferiti" text="Favorites" styleClass="tk-nav-active" />
+                <Button fx:id="btnNavThird" mnemonicParsing="false" onAction="#handleMieRecensioni" text="Reviews" styleClass="tk-nav-item" />
+                <Button fx:id="btnNavFourth" mnemonicParsing="false" onAction="#handlePrenotazioni" text="Bookings" styleClass="tk-nav-item" />
+              </children>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+            <MenuButton fx:id="accountMenuButton" mnemonicParsing="false" styleClass="tk-account-menu" />
+          </children>
+        </HBox>
+      </children>
+      <padding>
+        <Insets bottom="18.0" left="24.0" right="24.0" top="18.0" />
+      </padding>
+    </VBox>
+  </top>
+  <center>
+    <StackPane>
+      <children>
+        <AnchorPane fx:id="contentPanel" visible="false" managed="false">
+          <children>
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <content>
+                <VBox spacing="18.0" styleClass="tk-detail-layout">
+                  <children>
+                    <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="tk-hero">
+                      <children>
+                        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                          <children>
+                            <Label text="Your favorite restaurants" styleClass="tk-screen-title" />
+                            <Label text="View and manage all restaurants you've saved." styleClass="tk-text-secondary" />
+                          </children>
+                        </VBox>
+                      </children>
+                      <padding>
+                        <Insets top="16.0" right="24.0" bottom="16.0" left="24.0" />
+                      </padding>
+                    </HBox>
+                    <TilePane fx:id="tilePreferiti" hgap="12.0" vgap="12.0" prefColumns="4" />
+                    <VBox fx:id="emptyStateBox" spacing="12.0" alignment="CENTER" visible="false" managed="false">
+                      <children>
+                        <StackPane styleClass="tk-empty-state-icon">
+                          <children>
+                            <SVGPath content="M17.25 3h-4.5a.75.75 0 00-.75.75V6h6V3.75a.75.75 0 00-.75-.75zM17 8H7v9h10V8zM10.5 4.5h3v1h-3v-1z M20.75 3H4.75A1.75 1.75 0 003 4.75v12.5c0 .966.784 1.75 1.75 1.75h16.5A1.75 1.75 0 0022 17.25V4.75A1.75 1.75 0 0020.25 3zM20 17H4V8h16v9zm-1.5-11H5.5V5h13v1z" styleClass="tk-empty-state-icon-svg" />
+                          </children>
+                        </StackPane>
+                        <Label text="There are no favorites yet" styleClass="tk-section-title" />
+                        <Label text="Discover restaurants and save the ones you love most" styleClass="tk-text-secondary" />
+                        <Button text="Explore Restaurants" styleClass="tk-btn-primary" onAction="#handleHome" />
+                      </children>
+                    </VBox>
+                    <Label fx:id="lblError" text="" styleClass="tk-text-error" visible="false" managed="false" />
+                  </children>
+                  <padding>
+                    <Insets bottom="18.0" left="24.0" right="24.0" top="12.0" />
+                  </padding>
+                </VBox>
+              </content>
+            </ScrollPane>
+          </children>
+        </AnchorPane>
+
+        <AnchorPane fx:id="loginGatePanel" styleClass="tk-login-gate-overlay" visible="false" managed="false">
+          <children>
+            <VBox alignment="CENTER" spacing="18.0" styleClass="tk-login-gate-card" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <children>
+                <StackPane styleClass="tk-login-gate-lock-box">
+                  <children>
+                    <SVGPath content="M17 8H16V6C16 3.79 14.21 2 12 2C9.79 2 8 3.79 8 6V8H7C5.9 8 5 8.9 5 10V20C5 21.1 5.9 22 7 22H17C18.1 22 19 21.1 19 20V10C19 8.9 18.1 8 17 8ZM10 6C10 4.9 10.9 4 12 4C13.1 4 14 4.9 14 6V8H10V6ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17Z" styleClass="tk-login-gate-lock-icon" />
+                  </children>
+                </StackPane>
+                <Label text="Log in to save your favorite restaurants" styleClass="tk-login-gate-title" wrapText="true" />
+                <Label text="Create an account to save your favorite restaurants and access them from any device." styleClass="tk-login-gate-subtitle" wrapText="true" maxWidth="540.0" />
+                <HBox alignment="CENTER" spacing="12.0">
+                  <children>
+                    <Button fx:id="btnAccedi" text="Login" styleClass="tk-login-gate-btn" />
+                    <Button fx:id="btnRegistrati" text="Register" styleClass="tk-login-gate-btn" />
+                  </children>
+                </HBox>
+              </children>
+            </VBox>
+          </children>
+        </AnchorPane>
+      </children>
+    </StackPane>
+  </center>
+</BorderPane>

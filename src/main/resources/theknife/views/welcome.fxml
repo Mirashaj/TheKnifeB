@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theknife.client.controller.WelcomeController" styleClass="tk-root">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="tk-welcome-navbar">
+         <children>
+            <VBox spacing="2.0" style="-fx-padding: 6 28 0 12">
+            <StackPane styleClass="tk-welcome-brand-badge">
+               <children>
+                  <Label text="TK" styleClass="tk-welcome-brand-badge-text" />
+               </children>
+            </StackPane>
+            </VBox>
+            <HBox style="-fx-padding: 10 0 0 0">
+               <children>
+                  <Label text="TheKnife" styleClass="tk-welcome-brand-text" />
+               </children>
+            </HBox>
+            <Region HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </top>
+
+
+   <center>
+      <VBox alignment="CENTER" spacing="40.0" styleClass="tk-welcome-content">
+         <children>
+            <StackPane styleClass="tk-welcome-icon-tile">
+               <children>
+                  <Label text="🍴" styleClass="tk-welcome-icon" />
+               </children>
+            </StackPane>
+
+         <VBox alignment="CENTER" spacing="32.0" maxWidth="520.0" styleClass="tk-welcome-header">
+            <Label text="Welcome to TheKnife" textAlignment="CENTER" wrapText="true" styleClass="tk-welcome-title" />
+            <Label text="Find the best restaurants in the world. Book, review, discover." textAlignment="CENTER" wrapText="true" maxWidth="320.0" styleClass="tk-welcome-subtitle" />
+         </VBox>
+
+            <VBox alignment="CENTER" spacing="12.0" maxWidth="380.0">
+               <children>
+
+                  <Button fx:id="btnLogin" mnemonicParsing="false" onAction="#handleLogin" maxWidth="1.7976931348623157E308" prefHeight="48.0" styleClass="tk-welcome-action" text=" Login">
+                     <graphic>
+                        <SVGPath content="M12,12m-9,0a9,9 0 1,0 18,0a9,9 0 1,0 -18,0 M12,7a3,3 0 1,1 0,6a3,3 0 1,1 0,-6 M6.5,17c1.2,-2 3.3,-3 5.5,-3s4.3,1 5.5,3" scaleX="1" scaleY="1" styleClass="tk-welcome-action-svg" />
+                     </graphic>
+                  </Button>
+
+                  <Button fx:id="btnRegistrazione" mnemonicParsing="false" onAction="#handleRegistrazione" maxWidth="1.7976931348623157E308" prefHeight="48.0" styleClass="tk-welcome-action" text=" Register">
+                     <graphic>
+                        <SVGPath content="M12,4a3,3 0 1,1 0,6a3,3 0 1,1 0,-6 M6.5,13c1.2,-2 3.3,-3 5.5,-3s4.3,1 5.5,3 M17,6v3 M15.5,7.5h3" scaleX="1.2" scaleY="1.2" styleClass="tk-welcome-action-svg" />
+                     </graphic>
+                  </Button>
+
+
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" spacing="12.0" maxWidth="380.0">
+               <children>
+                  <Region HBox.hgrow="ALWAYS" styleClass="tk-welcome-divider-line" />
+                  <Label text="or continue without an account" styleClass="tk-welcome-divider-text" />
+                  <Region HBox.hgrow="ALWAYS" styleClass="tk-welcome-divider-line" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0" maxWidth="380.0">
+               <children>
+                  <TextField fx:id="txtCittaGuest" prefHeight="48.0" prefWidth="220.0" promptText="Enter a city..." styleClass="tk-welcome-input" />
+                  <Button fx:id="btnGuest" mnemonicParsing="false" onAction="#handleGuest" prefHeight="48.0" prefWidth="120.0" text="Explore" styleClass="tk-welcome-explore" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="32.0" left="24.0" right="24.0" top="24.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

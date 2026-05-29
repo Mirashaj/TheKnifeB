@@ -1,0 +1,927 @@
+.root {
+    -tk-red: #C0392B;
+    -tk-red-hover: #E74C3C;
+    -tk-red-dark: #962D22;
+    -tk-red-soft: #E57373;
+    -tk-red-bg-soft: #2A0A0A;
+    -tk-black: #111111;
+    -tk-surface: #1A1A1A;
+    -tk-surface-2: #1E1E1E;
+    -tk-surface-3: #222222;
+    -tk-border: #2A2A2A;
+    -tk-border-secondary: #333333;
+    -tk-text-primary: #EEEEEE;
+    -tk-text-secondary: #BBBBBB;
+    -tk-text-muted: #888888;
+    -tk-text-hint: #555555;
+    -tk-text-disabled: #444444;
+    -tk-green: #4CAF50;
+    -tk-green-bg: #0D1F0E;
+    -fx-font-family: "Segoe UI", "Inter", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+}
+
+.tk-root {
+    -fx-background-color: #111111;
+}
+
+.hyperlink {
+    -fx-underline: false;
+}
+
+.tk-welcome-navbar {
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 12 16 12 12;
+
+}
+
+.tk-welcome-brand-badge {
+    -fx-background-color: #e72c17;
+    -fx-background-radius: 8;
+    -fx-min-width: 42px;
+    -fx-min-height: 32px;
+    -fx-max-width: 42px;
+    -fx-max-height: 32px;
+}
+
+.tk-welcome-brand-badge-text {
+    -fx-text-fill: white;
+    -fx-font-weight: 800;
+}
+
+.tk-welcome-brand-text {
+    -fx-text-fill: #EEEEEE;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+}
+
+.tk-welcome-content {
+    -fx-alignment: center;
+}
+
+.tk-welcome-icon-tile {
+    -fx-background-color: #1E1E1E;
+    -fx-background-radius: 20;
+    -fx-border-color: #2A2A2A;
+    -fx-border-radius: 20;
+    -fx-border-width: 1;
+    -fx-min-width: 90px;
+    -fx-min-height: 90px;
+    -fx-max-width: 90px;
+    -fx-max-height: 90px;
+}
+
+.tk-welcome-icon {
+    -fx-text-fill: #e72c17;
+    -fx-font-size: 40px;
+    -fx-font-weight: 700;
+}
+
+.tk-welcome-title {
+    -fx-text-fill: #EEEEEE;
+    -fx-font-size: 42px;
+    -fx-font-weight: 700;
+}
+
+.tk-welcome-subtitle {
+    -fx-text-fill: #888888;
+    -fx-font-size: 18px;
+    -fx-font-weight: 400;
+}
+
+.tk-welcome-action {
+    -fx-background-color: transparent;
+    -fx-border-color: #333333;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: #EEEEEE;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+    -fx-padding: 12 20 12 20;
+}
+
+.tk-welcome-action:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.03);
+    -fx-border-color: #444444;
+}
+
+.tk-welcome-action:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+}
+
+.tk-welcome-action .text {
+    -fx-fill: #EEEEEE;
+}
+
+.tk-welcome-action-icon {
+    -fx-text-fill: #EEEEEE;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+}
+
+.tk-welcome-action-svg {
+    -fx-fill: #EEEEEE;
+}
+
+.tk-welcome-divider-line {
+    -fx-background-color: #333333;
+    -fx-min-height: 1px;
+    -fx-max-height: 1px;
+}
+
+.tk-welcome-divider-text {
+    -fx-text-fill: #555555;
+    -fx-font-size: 12px;
+    -fx-font-weight: 400;
+}
+
+.tk-welcome-input {
+    -fx-background-color: #1E1E1E;
+    -fx-border-color: #333333;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: #EEEEEE;
+    -fx-prompt-text-fill: #555555;
+    -fx-padding: 12 14 12 14;
+    -fx-font-size: 15px;
+}
+
+.tk-welcome-input:focused {
+    -fx-background-color: #222222;
+    -fx-border-color: #C0392B;
+}
+
+.tk-welcome-explore {
+    -fx-background-color: transparent;
+    -fx-border-color: #333333;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: #EEEEEE;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+    -fx-padding: 12 18 12 18;
+}
+
+.tk-welcome-explore:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.03);
+    -fx-border-color: #444444;
+}
+
+.tk-welcome-explore:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+}
+
+.tk-navbar {
+    -fx-background-color: rgba(20, 20, 20, 0.96);
+    -fx-border-color: rgba(255, 255, 255, 0.06);
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 18 24 18 24;
+}
+
+.tk-hero {
+    -fx-background-color: linear-gradient(to bottom right, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+    -fx-background-radius: 24;
+    -fx-border-radius: 24;
+    -fx-border-color: rgba(255, 255, 255, 0.06);
+    -fx-border-width: 1;
+}
+
+.tk-surface {
+    -fx-background-color: rgba(255, 255, 255, 0.03);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: rgba(255, 255, 255, 0.06);
+    -fx-border-width: 1;
+}
+
+
+.tk-logo-text {
+    -fx-font-size: 24px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #f6f6f6;
+}
+
+.tk-title-logo {
+    -fx-font-size: 34px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #f6f6f6;
+}
+
+.tk-screen-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #f4f4f4;
+}
+
+.tk-section-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #f4f4f4;
+}
+
+.tk-section-separator {
+    -fx-background-color: white;
+    -fx-min-height: 1px;
+    -fx-pref-height: 1px;
+    -fx-max-height: 1px;
+}
+
+.tk-text-secondary {
+    -fx-text-fill: #a0a0a0;
+    -fx-font-size: 14px;
+}
+
+.tk-text-secondary-welcome {
+    -fx-text-fill: #a0a0a0;
+    -fx-font-size: 24px;
+}
+
+.tk-text-error {
+    -fx-text-fill: #e72c17;
+}
+
+.tk-btn-search {
+    -fx-background-color: #232323;
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-padding: 10 18 10 18;
+    -fx-border-color: transparent;
+}
+
+.tk-btn-primary {
+    -fx-background-color: #e72c17;
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+    -fx-background-radius: 12;
+    -fx-cursor: hand;
+    -fx-padding: 10 18 10 18;
+    -fx-border-color: transparent;
+}
+
+.tk-btn-primary:hover {
+    -fx-background-color: #f05e4a;
+}
+
+.tk-btn-primary:pressed {
+    -fx-background-color: #d73a2f;
+}
+
+.tk-btn-secondary {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255, 255, 255, 0.18);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-text-fill: #f4f4f4;
+    -fx-cursor: hand;
+    -fx-padding: 10 18 10 18;
+}
+
+.tk-btn-secondary:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tk-nav-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: #a0a0a0;
+    -fx-background-radius: 12;
+    -fx-padding: 8 16 8 16;
+    -fx-cursor: hand;
+    -fx-font-weight: 700;
+}
+
+.tk-nav-item:hover {
+    -fx-text-fill: #f4f4f4;
+    -fx-background-color: rgba(255, 255, 255, 0.04);
+}
+
+.tk-nav-active {
+    -fx-background-color: #e72c17;
+    -fx-text-fill: white;
+    -fx-background-radius: 12;
+    -fx-padding: 8 16 8 16;
+    -fx-font-weight: 700;
+}
+
+.tk-account-menu {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-radius: 999;
+    -fx-background-radius: 999;
+    -fx-cursor: hand;
+    -fx-padding: 4 4 4 4;
+}
+
+.tk-account-menu:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-background-radius: 999;
+}
+
+.tk-account-menu .arrow-button {
+    -fx-padding: 0;
+    -fx-pref-width: 0;
+    -fx-min-width: 0;
+    -fx-max-width: 0;
+    -fx-opacity: 0;
+}
+
+.tk-account-menu .arrow {
+    -fx-background-color: #1A1A1A;
+    -fx-opacity: 0;
+}
+
+.tk-account-menu .label {
+    -fx-padding: 0;
+}
+
+.context-menu {
+    -fx-background-color: #1A1A1A;
+    -fx-border-color: rgba(255, 255, 255, 0.12);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.menu-item .label {
+    -fx-text-fill: #f4f4f4;
+    -FX-FONT-SIZE: 14px;
+}
+
+.menu-item {
+    -fx-background-color: #1A1A1A;
+}
+
+.menu-item:focused {
+    -fx-background-color: #e72c17;
+}
+
+.separator:horizontal .line {
+    -fx-border-color: rgba(255, 255, 255, 0.1);
+}
+
+.tk-detail-divider {
+    -fx-background-color: #6f6f6f;
+    -fx-min-width: 1px;
+    -fx-pref-width: 1px;
+    -fx-max-width: 1px;
+}
+
+.tk-account-fallback {
+    -fx-text-fill: #f4f4f4;
+    -fx-font-size: 14px;
+}
+
+.tk-account-icon-head {
+    -fx-fill: #f4f4f4;
+}
+
+.tk-account-icon-body {
+    -fx-fill: transparent;
+    -fx-stroke: #f4f4f4;
+    -fx-stroke-width: 1.8;
+    -fx-stroke-linecap: round;
+    -fx-stroke-linejoin: round;
+}
+
+.tk-account-menu-icon {
+    -fx-fill: transparent;
+    -fx-stroke: #f4f4f4;
+    -fx-stroke-width: 1.5;
+    -fx-stroke-linecap: round;
+    -fx-stroke-linejoin: round;
+}
+
+.tk-input {
+    -fx-background-color: rgba(255, 255, 255, 0.12);
+    -fx-border-color: rgba(200, 73, 73, 0.03);
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #EEEEEE;
+    -fx-prompt-text-fill: #555555;
+    -fx-padding: 10 14 10 14;
+    -fx-alignment: center-left;
+    -fx-font-size: 13px;
+}
+
+.tk-input:focused {
+    -fx-border-color: #C0392B;
+}
+
+.tk-role-toggle {
+    -fx-background-color: rgba(255, 255, 255, 0.02);
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-width: 0.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 14 20 14 20;
+    -fx-text-fill: #888888;
+    -fx-cursor: hand;
+    -fx-font-size: 15 px;
+    -fx-font-weight: 700;
+    -fx-alignment: CENTER;
+}
+
+.tk-role-toggle:selected,
+.tk-role-toggle.selected,
+.radio-button.tk-role-toggle:selected {
+    -fx-background-color: #2A0A0A;
+    -fx-border-color: #C0392B;
+    -fx-text-fill: #FFFFFF;
+}
+
+.tk-role-toggle .radio {
+    -fx-padding: 0;
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+}
+
+.tk-role-toggle .dot {
+    -fx-padding: 0;
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+}
+
+.tk-combo .combo-box-base,
+.tk-combo.combo-box {
+    -fx-background-color: rgba(255, 255, 255, 0.04);
+    -fx-border-color: rgba(255, 255, 255, 0.12);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-text-fill: #f3f3f3;
+}
+
+.tk-card {
+    -fx-background-color: rgba(255, 255, 255, 0.035);
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 16;
+    -fx-effect: none;
+}
+
+.tk-card:hover {
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-background-color: rgba(255, 255, 255, 0.035);
+}
+
+.tk-card-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #f6f6f6;
+}
+
+.tk-card-title-white {
+    -fx-font-size: 26px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #f6f6f6;
+}
+
+.tk-map-card {
+    -fx-max-width: 448px;
+    -fx-pref-width: 448px;
+    -fx-min-width: 448px;
+    -fx-background-color: rgba(255, 255, 255, 0.035);
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-width: 1;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.28), 18, 0.12, 0, 6);
+}
+
+.tk-stars {
+    -fx-text-fill: #e6d600d8;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-translate-x: 3px;
+}
+
+.tk-stars-white {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+    -fx-translate-x: 3px;
+    -fx-translate-y: -2px;
+}
+
+.tk-star-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #fbff00;
+    -fx-font-size: 24px;
+    -fx-font-weight: 800;
+    -fx-cursor: hand;
+    -fx-padding: 0 4 0 4;
+    -fx-border-color: #dfb323;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+    -fx-padding: 2 6 2 6;
+}
+
+.tk-star-button:hover {
+    -fx-text-fill: #d8b800;
+}
+
+.tk-star-button:pressed {
+    -fx-text-fill: #ffed47;
+}
+
+.tk-star-half {
+    -fx-font-size: 17.5px;
+    -fx-translate-y: -2px;
+    -fx-translate-x: 3px;
+}
+
+.tk-badge {
+    -fx-background-color: rgba(227, 42, 131, 0.563);
+    -fx-text-fill: #f4b3d0;
+    -fx-background-radius: 999;
+    -fx-padding: 4 10 4 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+}
+
+.tk-badge.tk-price-low {
+    -fx-background-color: rgba(76, 175, 80, 0.22);
+    -fx-text-fill: #bff0c3;
+}
+
+.tk-badge.tk-price-medium {
+    -fx-background-color: rgba(255, 193, 7, 0.22);
+    -fx-text-fill: #ffe6a6;
+}
+
+.tk-badge.tk-price-high {
+    -fx-background-color: rgba(255, 94, 77, 0.24);
+    -fx-text-fill: #ffd4ce;
+}
+
+.tk-badge.tk-positive {
+    -fx-background-color: rgba(49, 102, 241, 0.72);
+    -fx-text-fill: #eff6ff;
+}
+
+.tk-badge.tk-price-request {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-text-fill: #d9d9d9;
+}
+
+.tk-chip {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-text-fill: #d9d9d9;
+    -fx-background-radius: 999;
+    -fx-padding: 4 10 4 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+
+.tk-breadcrumb {
+    -fx-text-fill: #a8a8a8;
+    -fx-font-size: 12px;
+}
+
+.tk-filter-panel {
+    -fx-background-color: rgba(0, 0, 0, 0.14);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: rgba(255, 255, 255, 0.06);
+    -fx-border-width: 1;
+    -fx-padding: 16;
+}
+
+.tk-empty-state {
+    -fx-background-color: rgba(255, 255, 255, 0.03);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-width: 1;
+    -fx-padding: 12;
+}
+
+.tk-result-thumb {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-background-radius: 16;
+    -fx-min-width: 44px;
+    -fx-min-height: 44px;
+    -fx-max-width: 44px;
+    -fx-max-height: 44px;
+}
+
+.tk-detail-layout {
+    -fx-padding: 24 24 24 24;
+}
+
+.tk-detail-main {
+    -fx-pref-width: 0;
+}
+
+.tk-detail-sidebar {
+    -fx-pref-width: 300px;
+}
+
+.tk-owner-form-card {
+    -fx-background-color: rgba(255, 255, 255, 0.035);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-width: 1;
+    -fx-padding: 18;
+}
+
+/* Register-specific styles */
+.tk-register-card {
+    -fx-pref-width: 520px;
+    -fx-max-width: 560px;
+    -fx-background-color: rgba(255, 255, 255, 0.025);
+    -fx-border-color: rgba(255, 255, 255, 0.06);
+    -fx-border-width: 0.5;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+}
+
+.tk-register-panel {
+    -fx-background-color: rgba(255, 255, 255, 0.03);
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-width: 0.5;
+    -fx-border-radius: 14;
+    -fx-padding: 18;
+}
+
+.tk-form-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #EEEEEE;
+}
+
+.tk-form-subtitle {
+    -fx-font-size: 13px;
+    -fx-font-weight: 400;
+    -fx-text-fill: #BBBBBB;
+}
+
+.tk-field-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: 400;
+    -fx-text-fill: #888888;
+}
+
+.tk-field-label2 {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #888888;
+}
+
+.tk-register-button {
+    -fx-background-color: rgba(255, 255, 255, 0.03);
+    -fx-border-color: rgba(255, 255, 255, 0.12);
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #EEEEEE;
+    -fx-padding: 12 18 12 18;
+    -fx-font-weight: bold;
+    -fx-border-width: 1.3px;
+    -fx-font-size: 18px;
+
+}
+
+.tk-register-link {
+    -fx-text-fill: #e70909;
+    -fx-underline: false;
+    -fx-font-size: 16px;
+    -fx-font-weight: 400;
+    -fx-padding: 0;
+}
+
+.tk-register-link:hover {
+    -fx-text-fill: #9c1607;
+}
+
+.tk-login-shell {
+    -fx-background-color: rgba(255, 255, 255, 0.02);
+    -fx-border-color: rgba(255, 255, 255, 0.06);
+    -fx-border-width: 0.5;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-padding: 18;
+    -fx-cursor: hand;
+
+}
+
+.tk-metric-card {
+    -fx-background-color: rgba(255, 255, 255, 0.04);
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-border-color: rgba(255, 255, 255, 0.07);
+    -fx-border-width: 1;
+    -fx-min-height: 110px;
+    -fx-pref-height: 110px;
+    -fx-max-height: 110px;
+    -fx-padding: 14;
+}
+
+.tk-metric-card:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-border-color: rgba(255, 94, 77, 0.55);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.30), 20, 0.14, 0, 8);
+}
+
+.tk-booking-card {
+    -fx-background-color: rgba(255, 255, 255, 0.035);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-width: 1;
+    -fx-padding: 20;
+    -fx-min-height: 280;
+    -fx-pref-height: 300;
+    -fx-max-height: 320;
+}
+
+.tk-review-card {
+    -fx-background-color: rgba(255, 255, 255, 0.035);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-width: 1;
+    -fx-padding: 20;
+    -fx-min-height: 220;
+    -fx-pref-height: 240;
+    -fx-max-height: 280;
+}
+
+.tk-review-card:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-border-color: rgba(255, 94, 77, 0.55);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.30), 20, 0.14, 0, 8);
+}
+
+.tk-owner-review-card {
+    -fx-background-color: rgba(255, 255, 255, 0.035);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-width: 1;
+    -fx-padding: 20;
+    -fx-min-height: 260;
+    -fx-pref-height: 280;
+    -fx-max-height: 300;
+}
+
+.tk-empty-state:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-border-color: rgba(255, 94, 77, 0.45);
+}
+
+.tk-review-reply {
+    -fx-background-color: rgba(255, 94, 77, 0.12);
+    -fx-background-radius: 14;
+    -fx-border-radius: 14;
+    -fx-border-color: rgba(255, 94, 77, 0.3);
+    -fx-border-width: 1;
+    -fx-padding: 12;
+}
+
+.tk-side-action {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255, 255, 255, 0.16);
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+    -fx-text-fill: #f4f4f4;
+    -fx-font-weight: 800;
+    -fx-padding: 12 16 12 16;
+    -fx-cursor: hand;
+}
+
+.tk-side-action:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-border-color: rgba(255, 94, 77, 0.55);
+}
+
+.tk-card-action {
+    -fx-background-color: rgba(255, 255, 255, 0.03);
+    -fx-border-color: rgba(255, 255, 255, 0.12);
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: #f4f4f4;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+    -fx-padding: 6 8 6 8;
+    -fx-cursor: hand;
+}
+
+.tk-card-action:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+    -fx-border-color: rgba(231, 44, 23, 0.55);
+}
+
+.tk-card-action:disabled {
+    -fx-opacity: 0.45;
+    -fx-cursor: default;
+}
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: rgba(255, 255, 255, 0.04);
+    -fx-background-radius: 14 14 0 0;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-text-background-color: #f4f4f4;
+}
+
+.table-view .table-row-cell:filled:selected,
+.table-view .table-row-cell:filled:selected:hover {
+    -fx-background-color: rgba(216, 74, 60, 0.18);
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane>.viewport {
+    -fx-background-color: transparent;
+}
+
+.tk-login-gate-overlay {
+    -fx-background-color: linear-gradient(to bottom right, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.03));
+}
+
+.tk-login-gate-card {
+    -fx-padding: 28 24 28 24;
+}
+
+.tk-login-gate-lock-box {
+    -fx-min-width: 96px;
+    -fx-min-height: 96px;
+    -fx-max-width: 96px;
+    -fx-max-height: 96px;
+    -fx-background-color: rgba(0, 0, 0, 0.25);
+    -fx-background-radius: 16;
+    -fx-border-color: rgba(255, 255, 255, 0.08);
+    -fx-border-radius: 16;
+}
+
+.tk-login-gate-lock-icon {
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-fill: transparent;
+    -fx-stroke: #f4f4f4;
+    -fx-stroke-width: 1.8;
+    -fx-stroke-linecap: round;
+    -fx-stroke-linejoin: round;
+}
+
+.tk-login-gate-title {
+    -fx-font-size: 38px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #f4f4f4;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+
+.tk-login-gate-subtitle {
+    -fx-font-size: 20px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #bbbbbb;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+
+.tk-login-gate-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255, 255, 255, 0.24);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-text-fill: #f4f4f4;
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+    -fx-padding: 10 24 10 24;
+    -fx-cursor: hand;
+}
+
+.tk-login-gate-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.06);
+    -fx-border-color: rgba(255, 255, 255, 0.36);
+}
+
+.tk-login-gate-btn:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.12);
+}

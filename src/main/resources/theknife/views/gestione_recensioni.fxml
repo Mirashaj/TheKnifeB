@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="700.0" prefWidth="1100.0" styleClass="tk-root" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theknife.client.controller.GestioneRecensioniController">
+   <top>
+      <VBox>
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="12.0">
+               <children>
+                  <VBox spacing="2.0" style="-fx-padding: 0 28 0 0">
+                     <children>
+                        <StackPane styleClass="tk-welcome-brand-badge">
+                           <children>
+                              <Label text="TK" styleClass="tk-welcome-brand-badge-text" />
+                           </children>
+                        </StackPane>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER_LEFT" spacing="8.0">
+                     <children>
+                        <Button fx:id="btnNavHome" mnemonicParsing="false" onAction="#handleHome" text="Home" styleClass="tk-nav-item" />
+                        <Button fx:id="btnNavRestaurants" mnemonicParsing="false" onAction="#handleRestaurants" text="Restaurants" styleClass="tk-nav-item" />
+                        <Button fx:id="btnNavReviews" mnemonicParsing="false" onAction="#handleReviews" text="Review" styleClass="tk-nav-active" />
+                        <Button fx:id="btnNavBookings" mnemonicParsing="false" onAction="#handleBookings" text="Bookings" styleClass="tk-nav-item" />
+                     </children>
+                  </HBox>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <MenuButton fx:id="accountMenuButton" mnemonicParsing="false" styleClass="tk-account-menu" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="18.0" left="24.0" right="24.0" top="18.0" />
+         </padding>
+      </VBox>
+   </top>
+   <center>
+      <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="tk-content-scroll">
+         <content>
+            <VBox spacing="18.0" styleClass="tk-detail-layout">
+               <padding>
+                  <Insets bottom="18.0" left="24.0" right="24.0" top="12.0" />
+               </padding>
+               <children>
+                  <VBox spacing="10.0" styleClass="tk-hero">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="12.0">
+                           <children>
+                              <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="lblTitolo" text="Restaurant Reviews" styleClass="tk-screen-title" />
+                                    <Label fx:id="lblSottotitolo" text="Respond to reviews left for your venues and edit responses when needed." styleClass="tk-text-secondary" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="16.0" left="24.0" right="24.0" top="16.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="vboxRecensioni" spacing="16.0" />
+                  <Label fx:id="lblEmpty" text="No reviews yet" styleClass="tk-text-secondary" visible="false" managed="false" />
+                  <Label fx:id="lblError" text="" styleClass="tk-text-error" visible="false" managed="false" />
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>
