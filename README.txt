@@ -1,6 +1,6 @@
 ======================================================
 THEKNIFE
-LAB A, CORSO DI LAUREA TRIENNALE IN INFORMATICA
+LAB B, CORSO DI LAUREA TRIENNALE IN INFORMATICA
 UNIVERSITA' DEGLI STUDI DELL'INSUBRIA
 
 PROGETTO REALIZZATO DA:
@@ -12,7 +12,7 @@ Lorenzo Mujeci 757597 VA
 ======================================================
 
 CONTENUTI:
-    --> bin/file .jar: applicazione eseguibile 
+    --> bin/: contiene i file .jar: applicazione eseguibile 
     --> src/: codice sorgente del progetto
     --> sql/: file sql e script python utilizzati per creare e popolare il DB
     --> doc/: documentazione e manuali
@@ -22,6 +22,9 @@ CONTENUTI:
     --> run-server.bat: file server eseguibile batch per Windows
     --> run-client.sh: file client eseguibile shell per Linux e macOS
     --> run-server.sh: file server eseguibile shell per Linux e macOS
+
+    --> Backup.sql: file dump con tutti i dati del DB
+    --> Database_Guide.mp4: video guida per mostrare i passaggi necessari per creare il DB 
 
 AVVIO:
 Doppio click su "run-server.bat" (Windows) o "run-server.sh" (Linux/macOS) dalla directory principale del progetto.
