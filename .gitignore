@@ -10,7 +10,8 @@ bin/
 lib/
 *.class
 *.jar
-.\cleanup-fxml-bom.ps1 
+cleanup-fxml-bom.ps1 
+.editorconfig
 
 # File temporanei
 _tmp/
