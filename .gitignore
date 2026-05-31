@@ -6,7 +6,6 @@ sql/setup_user.sql
 # Build output
 target/
 *.class
-*.jar
 cleanup-fxml-bom.ps1 
 .editorconfig
 
@@ -28,6 +27,4 @@ _tmp/
 .DS_Store
 Thumbs.db
 *.md
-COMANDI.txt
-.\COMANDI.txt
 

@@ -1,0 +1,12 @@
+mvn javafx:run
+
+mvn clean compile
+
+1. createdb -U postgres dbtk
+2. psql -U postgres -d dbtk -f sql/create_db.sql
+
+3. python sql/csv_to_sql.py sql/michelin_my_maps.csv
+   python sql/generate_reviews.py
+
+4. psql -U postgres -d dbtk -f sql/insert_data.sql
+   psql -U postgres -d dbtk -f sql/insert_reviews.sql
