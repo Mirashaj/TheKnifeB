@@ -5,8 +5,6 @@ sql/setup_user.sql
 
 # Build output
 target/
-bin/
-lib/
 *.class
 *.jar
 cleanup-fxml-bom.ps1 
