@@ -9,17 +9,17 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.SVGPath;
@@ -69,7 +69,7 @@ public class PrenotazioniController {
     @FXML
     private Button btnNavFourth;
 
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM uuuu HH:mm", Locale.ITALIAN);
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM uuuu HH:mm", Locale.ENGLISH);
 
     private GridPane gridPrenotazioni;
 
@@ -252,7 +252,7 @@ public class PrenotazioniController {
         HBox.setHgrow(spacer, Priority.ALWAYS);
         header.getChildren().addAll(titleBox, spacer);
 
-        Label seats = new Label("Posti: " + p.getPosti());
+        Label seats = new Label("Seats: " + p.getPosti());
         seats.getStyleClass().add("tk-text-secondary");
 
         Label rating = new Label("...");
@@ -372,18 +372,18 @@ public class PrenotazioniController {
                     String.format("%02d:%02d", p.getDataPrenotazione().getHour(), p.getDataPrenotazione().getMinute()));
         }
 
-        HBox dateBox = new HBox(6, new Label("Data:"), datePicker);
+        HBox dateBox = new HBox(6, new Label("Date:"), datePicker);
         dateBox.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
 
         javafx.scene.control.TextField seatsField = new javafx.scene.control.TextField(String.valueOf(p.getPosti()));
         seatsField.setPrefWidth(80);
-        seatsField.setPromptText("Posti");
+        seatsField.setPromptText("Seats");
 
-        HBox timeAndSeatsBox = new HBox(10, new HBox(6, new Label("Ora:"), timeField),
-                new HBox(6, new Label("Posti:"), seatsField));
+        HBox timeAndSeatsBox = new HBox(10, new HBox(6, new Label("Time:"), timeField),
+            new HBox(6, new Label("Seats:"), seatsField));
         timeAndSeatsBox.setAlignment(javafx.geometry.Pos.CENTER_LEFT);
 
-        Button btnSave = new Button("Salva");
+        Button btnSave = new Button("Save");
         btnSave.getStyleClass().add("tk-btn-primary");
 
         Button btnCancelEdit = new Button("Cancel");
@@ -402,7 +402,7 @@ public class PrenotazioniController {
 
         btnSave.setOnAction(ev -> {
             if (datePicker.getValue() == null) {
-                showError("Seleziona una data.");
+                showError("Select a date.");
                 return;
             }
 
@@ -411,7 +411,7 @@ public class PrenotazioniController {
             try {
                 localTime = java.time.LocalTime.parse(time);
             } catch (Exception ex) {
-                showError("Formato ora non valido (HH:mm).");
+                showError("Invalid time format (HH:mm).");
                 return;
             }
 
@@ -419,17 +419,17 @@ public class PrenotazioniController {
             try {
                 newSeats = Integer.parseInt(seatsField.getText().trim());
             } catch (Exception ex) {
-                showError("Posti non validi.");
+                showError("Invalid seats.");
                 return;
             }
             if (newSeats < 1) {
-                showError("Posti devono essere >= 1.");
+                showError("Seats must be >= 1.");
                 return;
             }
 
             java.time.LocalDateTime newDate = java.time.LocalDateTime.of(datePicker.getValue(), localTime);
             if (newDate.isBefore(java.time.LocalDateTime.now())) {
-                showError("La data e l'ora devono essere future.");
+                showError("Date and time must be in the future.");
                 return;
             }
 
@@ -446,7 +446,7 @@ public class PrenotazioniController {
                     if (res.isSuccesso()) {
                         Platform.runLater(() -> {
                             card.getChildren().remove(editor);
-                            seatsLabel.setText("Posti: " + newSeats);
+                            seatsLabel.setText("Seats: " + newSeats);
                             dateLabel.setText(newDate.format(formatter));
                             actions.setVisible(true);
                             actions.setManaged(true);
@@ -455,7 +455,7 @@ public class PrenotazioniController {
                         Platform.runLater(() -> showError(res.getMessaggio()));
                     }
                 } catch (IOException | ClassNotFoundException ex) {
-                    Platform.runLater(() -> showError("Errore di connessione"));
+                    Platform.runLater(() -> showError("Connection error"));
                 }
             }).start();
         });
